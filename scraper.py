@@ -6,18 +6,23 @@ import os
 # before our pipeline modules load.
 os.environ['SCRAPERWIKI_DATABASE_NAME'] = 'sqlite:///data.sqlite'
 
-from twisted.internet import reactor
-from scrapy.crawler import Crawler
-# from scrapy import log, signals
-from phr_scrapers.spiders.trollies import TrolliesSpider
-from scrapy.utils.project import get_project_settings
+# from twisted.internet import reactor
+# from scrapy.crawler import Crawler
+# # from scrapy import log, signals
+# from phr_scrapers.spiders.trollies import TrolliesSpider
+# from scrapy.utils.project import get_project_settings
 
-spider = TrolliesSpider()
-settings = get_project_settings()
-crawler = Crawler(settings)
-# crawler.signals.connect(reactor.stop, signal=signals.spider_closed)
-crawler.configure()
-crawler.crawl(spider)
-crawler.start()
-# log.start()
-reactor.run()
+# spider = TrolliesSpider()
+# settings = get_project_settings()
+# crawler = Crawler(settings)
+# # crawler.signals.connect(reactor.stop, signal=signals.spider_closed)
+# crawler.configure()
+# crawler.crawl(spider)
+# crawler.start()
+# # log.start()
+# reactor.run()
+
+import subprocess
+
+
+subprocess.call('scrapy crawl trollies --loglevel=INFO', shell=True)
