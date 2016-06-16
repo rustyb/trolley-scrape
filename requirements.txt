@@ -1,0 +1,2 @@
+scraperwiki==0.5.1
+Scrapy==1.1.0rc1
